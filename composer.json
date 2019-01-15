@@ -1,0 +1,21 @@
+{
+    "name": "ethercap/common",
+    "description": "yt的common包",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "李仕鹏",
+            "email": "lspbupt@sina.com"
+        }
+    ],
+    "require": {
+        "lspbupt/yii2-curl": "*",
+        "phpoffice/phpspreadsheet": "*",
+        "doctrine/annotations": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "lspbupt\\common\\": "src/"
+        }
+    }
+}

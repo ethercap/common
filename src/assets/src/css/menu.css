@@ -1,0 +1,16 @@
+.nav-second-level li a {
+    padding: 7px 10px 7px 10px;
+    padding-left: 49px;
+}
+.nav-third-level li a {
+    padding-left: 73px;
+}
+.nav-fourth-level li a {
+    padding-left: 83px;
+}
+.nav.nav-third-level > li.active {
+    border: none;
+}
+.nav.nav-fourth-level > li.active {
+    border: none;
+}

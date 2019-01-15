@@ -1,0 +1,21 @@
+.form-group label{
+    text-align:right;
+    padding-top:7px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    padding-top:5px;
+}
+.select2-container--krajee .select2-selection--multiple .select2-selection__choice__remove{
+    margin: 0 0 0 3px;
+}
+.select2-container--krajee .select2-selection--single .select2-selection__clear {
+    margin-top:-4px;
+}
+
+
+.dropdown-menu {
+    z-index:3000;
+}
+.select2-container--krajee .select2-dropdown {
+    z-index:3000;
+}
