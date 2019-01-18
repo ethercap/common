@@ -1,6 +1,6 @@
 <?php
 
-namespace lspbupt\common\widgets;
+namespace ethercap\common\widgets;
 
 use yii\web\JsExpression;
 use yii\helpers\ArrayHelper;

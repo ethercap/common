@@ -1,6 +1,6 @@
 <?php
 
-namespace lspbupt\common\validators;
+namespace ethercap\common\validators;
 
 class ArrayValidator extends DictValidator
 {

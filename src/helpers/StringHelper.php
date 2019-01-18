@@ -9,18 +9,6 @@ class StringHelper extends \yii\helpers\StringHelper
 {
     public static $password_blacklist = array('123456', '123456789', '000000', '111111', '123123', '5201314', '666666', '123321', '1314520', '1234567890', '888888', '1234567', '654321', '12345678', '520520', '7758521', '112233', '147258', '123654', '987654321', '88888888', '147258369', '666888', '5211314', '521521', 'a123456', 'zxcvbnm', '999999', '222222', '123123123', '1314521', '201314', 'woaini', '789456', '555555', 'qwertyuiop', '100200', '168168', 'qwerty', '258369', '456789', '110110', '789456123', '159357', '123789', '123456a', '121212', '456123', '987654', '111222', '1111111111', '7758258', '00000000', 'admin', 'administrator', '333333', '1111111', '369369', '888999', 'asdfgh', '11111111', 'woaini1314', '258258', '0123456789', '369258', 'aaaaaa', '778899', '0000000000', '0000000', '159753', 'abc123', '585858', 'asdfghjkl', '321654', '211314', '584520', 'abcdefg', '777777', '0123456', 'a123456789', '123654789', 'abc123456', '336699', 'abcdef', '518518', '888666', '708904', '135246', '12345678910', '147369', '110119', 'qq123456', '789789', '251314', '555666', '111111111', '123000', 'zxcvbn', 'qazwsx', '123456abc', 'hlj12345');
 
-    public static $inner_iplist = [
-        '192.168.1.*',
-        '127.0.0.1',
-        '10.*.*.*',
-        '119.57.161.139', //公司网络
-        '139.129.164.91', //dev机器
-        '60.205.219.253', //proxy
-        '123.56.31.207',  //relay
-        '47.105.103.225', //jumper
-        '47.105.139.241', //临时dev ip
-    ];
-
     //正则匹配一个电话是否为正确的电话号码
     public static function checkMobile($mobile)
     {
@@ -34,14 +22,6 @@ class StringHelper extends \yii\helpers\StringHelper
     public static function checkEmail($email)
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return true;
-        }
-        return false;
-    }
-
-    public static function checkLogin($login)
-    {
-        if (preg_match("/\w{5,10}/", $login)) {
             return true;
         }
         return false;
@@ -185,28 +165,6 @@ class StringHelper extends \yii\helpers\StringHelper
             return $_SERVER['REMOTE_ADDR'];
         }
         return $default;
-    }
-
-    /**
-     * 是否为公司内部IP
-     *
-     * @param string $ip
-     *
-     * @return bool
-     */
-    public static function isInnerIP($ip = null)
-    {
-        $ip == null && $ip = self::getRealIp('0.0.0.0');
-        $INNER_IP_ADDR = ArrayHelper::getValue(Yii::$app->params, 'inner_iplist', []);
-        if (empty($INNER_IP_ADDR)) {
-            $INNER_IP_ADDR = self::$inner_iplist;
-        }
-        foreach ($INNER_IP_ADDR as $range) {
-            if (self::isIPInRange($ip, $range)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public static function mb_substr_replace($original, $replacement, $position, $length)

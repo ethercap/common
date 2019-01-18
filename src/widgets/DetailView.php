@@ -1,8 +1,8 @@
 <?php
 
-namespace lspbupt\common\widgets;
+namespace ethercap\common\widgets;
 
-use lspbupt\common\helpers\ArrayHelper;
+use ethercap\common\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /** 改默认的DetailView为一行多列的模式

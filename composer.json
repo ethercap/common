@@ -11,11 +11,12 @@
     "require": {
         "lspbupt/yii2-curl": "*",
         "phpoffice/phpspreadsheet": "*",
-        "doctrine/annotations": "*"
+        "doctrine/annotations": "*",
+        "rmrevin/yii2-fontawesome": "*"
     },
     "autoload": {
         "psr-4": {
-            "lspbupt\\common\\": "src/"
+            "ethercap\\common\\": "src/"
         }
     }
 }

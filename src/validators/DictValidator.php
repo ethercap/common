@@ -1,11 +1,11 @@
 <?php
 
-namespace lspbupt\common\validators;
+namespace ethercap\common\validators;
 
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
 use yii\validators\Validator;
-use lspbupt\common\assets\ValidationAsset;
+use ethercap\common\assets\ValidationAsset;
 use Yii;
 
 /* 数组选择的validator

@@ -1,6 +1,6 @@
 <?php
 
-namespace lspbupt\common\widgets;
+namespace ethercap\common\widgets;
 
 use dmstr\widgets\Menu;
 use yii\helpers\ArrayHelper;
