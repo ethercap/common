@@ -2,7 +2,7 @@
 
 namespace ethercap\common\helpers;
 
-class DingBot extends \ethercap\curl\BaseCurlHttp
+class DingBot extends \lspbupt\curl\BaseCurlHttp
 {
     public $protocol = 'https';
     public $host = 'oapi.dingtalk.com';
