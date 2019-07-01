@@ -37,7 +37,7 @@ class DingBot extends \lspbupt\curl\BaseCurlHttp
         return $this->sendRaw($arr, $atMobiles, $atAll);
     }
 
-    public function sendLink($text, $picUrl, $link, $title = '', $atMobiles = [], $atAll = false)
+    public function sendLink($text, $picUrl, $link, $title = '链接卡片', $atMobiles = [], $atAll = false)
     {
         $arr = [
             'msgtype' => 'link',
