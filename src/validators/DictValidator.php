@@ -1,11 +1,11 @@
 <?php
 
-namespace ethercap\common\validators;
+namespace lspbupt\common\validators;
 
 use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
 use yii\validators\Validator;
-use ethercap\common\assets\ValidationAsset;
+use lspbupt\common\assets\ValidationAsset;
 use Yii;
 
 /* 数组选择的validator
@@ -107,6 +107,8 @@ class DictValidator extends Validator
         $label = $model->getAttributeLabel($attribute);
         $options = [
             'list' => $this->allList,
+            // javascript会丢失dict的顺序,因此将dict的key作为数组传过去，保证顺序
+            'order' => array_keys($this->allList),
             'multiple' => $this->multiple,
             'excludes' => $this->excludes,
             'message' => $this->formatMessage($this->message, ['attribute' => $label]),

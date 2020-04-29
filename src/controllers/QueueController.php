@@ -1,12 +1,13 @@
 <?php
 
-namespace ethercap\common\controllers;
+namespace lspbupt\common\controllers;
 
 use yii\helpers\Console;
 use yii\helpers\ArrayHelper;
 use yii\console\Exception;
 use yii\base\ExitException;
 use yii\base\ModelEvent;
+use lspbupt\common\helpers\SysMsg;
 use Yii;
 
 /**
@@ -67,10 +68,16 @@ class QueueController extends ServiceController
         $data = json_decode($ret, true);
         $retry = ArrayHelper::getValue($data, 'retry', 0);
         if ($retry >= $this->maxRetry) {
-            $this->stdout('超出最大重试次数:'.$ret."\n", Console::FG_RED);
+            $this->finallyFailed(['MAX_RETRY_ERROR', $retry], $data);
             return null;
         }
         return $data;
+    }
+
+    public function finallyFailed($errRet, $data)
+    {
+        $errMsg = SysMsg::getErrMsg($errRet);
+        $this->stdout($errMsg, Console::FG_RED);
     }
 
     public function processData()
@@ -133,3 +140,4 @@ class QueueController extends ServiceController
         return parent::actionStatus();
     }
 }
+SysMsg::register('MAX_RETRY_ERROR', "超出最大重试次数:%d\n");
