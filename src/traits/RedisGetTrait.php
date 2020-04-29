@@ -1,6 +1,6 @@
 <?php
 
-namespace lspbupt\common\traits;
+namespace ethercap\common\traits;
 
 use Yii;
 use yii\base\UnknownMethodException;

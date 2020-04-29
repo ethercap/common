@@ -1,13 +1,13 @@
 <?php
 
-namespace lspbupt\common\controllers;
+namespace ethercap\common\controllers;
 
 use yii\helpers\Console;
 use yii\helpers\ArrayHelper;
 use yii\console\Exception;
 use yii\base\ExitException;
 use yii\base\ModelEvent;
-use lspbupt\common\helpers\SysMsg;
+use ethercap\common\helpers\SysMsg;
 use Yii;
 
 /**

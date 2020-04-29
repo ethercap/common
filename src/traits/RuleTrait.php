@@ -1,8 +1,8 @@
 <?php
 
-namespace lspbupt\common\traits;
+namespace ethercap\common\traits;
 
-use lspbupt\common\validators\DictValidator;
+use ethercap\common\validators\DictValidator;
 use yii\helpers\ArrayHelper;
 
 trait RuleTrait
