@@ -98,21 +98,21 @@ class AttrBehavior extends \yii\base\Behavior
         $attrKeyValue = ArrayHelper::getValue($data, $key, $defaultVal);
         return $attrKeyValue;
     }
-
+    
     public function clearAttr($key = null)
     {
-        $attrKey = $this->owner->attrKey;
+        $attrKey = $this->attrKey;
         if (is_null($key)) {
             // delete all
             $this->$attrKey = '';
         } else {
             // delete an item
-            $data = json_decode($this->$attrKey, true);
+            $data = json_decode($this->owner->$attrKey, true);
             if (empty($data)) {
                 $data = [];
             }
             unset($data[$key]);
-            $this->$attrKey = json_encode($data);
+            $this->owner->$attrKey = json_encode($data);
         }
     }
 
