@@ -104,11 +104,15 @@ class DictValidator extends Validator
     //获取客户端的配置
     public function getClientOptions($model, $attribute)
     {
+        $orderKeys = [];
+        foreach ($this->allList as $key => $value) {
+            $orderKeys[] = (string)$key;
+        }
         $label = $model->getAttributeLabel($attribute);
         $options = [
             'list' => $this->allList,
             // javascript会丢失dict的顺序,因此将dict的key作为数组传过去，保证顺序
-            'order' => array_keys($this->allList),
+            'order' => $orderKeys,
             'multiple' => $this->multiple,
             'excludes' => $this->excludes,
             'message' => $this->formatMessage($this->message, ['attribute' => $label]),
