@@ -2,6 +2,7 @@
     "name": "ethercap/common",
     "description": "yt的common包",
     "license": "MIT",
+    "type": "yii2-extension",
     "authors": [
         {
             "name": "李仕鹏",
