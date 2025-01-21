@@ -2,7 +2,9 @@
 
 namespace ethercap\common\helpers;
 
+use ethercap\common\validators\DictValidator;
 use yii\base\Component;
+use yii\base\Model;
 
 class RuleHelper extends Component
 {
@@ -63,5 +65,17 @@ class RuleHelper extends Component
             return true;
         }
         return false;
+    }
+
+    //获取某个类型的validator，只返回第一个
+    public static function getAttributeValidator(Model $model, string $attribute, $class = DictValidator::class)
+    {
+        $validators = $model->getValidators();
+        foreach ($validators as $validator) {
+            if ($validator instanceof $class && in_array($attribute, $validator->attributes)) {
+                return $validator;
+            }
+        }
+        return null;
     }
 }

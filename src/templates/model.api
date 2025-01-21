@@ -1,0 +1,9 @@
+<?php
+use ethercap\apiBase\components\ResBuilder;
+use ethercap\apiBase\widgets\DetailApi;
+use yii\helpers\ArrayHelper;
+$res->field()->widget(DetailApi::class, [
+    'useModelResponse' => true,
+    'model' => $model,
+    'columns' => $columns,
+]); 

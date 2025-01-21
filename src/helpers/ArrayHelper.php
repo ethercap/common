@@ -204,4 +204,18 @@ class ArrayHelper extends \yii\helpers\ArrayHelper
         }
         return self::toArray($objects, [get_class($topObject) => $properties], $recursive);
     }
+
+    // 采用render的方式来渲染
+    public static function renderToArray($model, $attrs = null, $modelResponse = true)
+    {
+        if (is_null($attrs)) {
+            $attrs = array_keys($model->attributes);
+        }
+        $serialize = new \ethercap\apiBase\components\Serializer([
+            'useModelResponse' => $modelResponse,
+            'columns' => $attrs,
+            'addConfig' => true,
+        ]);
+        return $serialize->serializeModel($model);
+    }
 }
