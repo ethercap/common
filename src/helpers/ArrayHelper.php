@@ -210,6 +210,9 @@ class ArrayHelper extends \yii\helpers\ArrayHelper
     {
         if (is_null($attrs)) {
             $attrs = array_keys($model->attributes);
+            if (method_exists($model, 'getAttrProperties')) {
+                $attrs = array_merge($attrs, array_keys($model->getAttrProperties()));
+            }
         }
         $serialize = new \ethercap\apiBase\components\Serializer([
             'useModelResponse' => $modelResponse,
