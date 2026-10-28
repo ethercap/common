@@ -297,7 +297,7 @@ class StringHelper extends \yii\helpers\StringHelper
         $controllerId = Yii::$app->controller->id;
         $action = Yii::$app->controller->action->id;
         $arr = [$appId, $moduleId, $controllerId, $action];
-        $key = implode($arr, $delimeter);
+        $key = implode($delimeter, $arr);
         return $key;
     }
 
